@@ -1,0 +1,267 @@
+/* Base Reset & Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-brown: #5c4d4c;  
+}
+
+body {
+    background-color: #fcf9f2;
+    color: var(--accent-brown);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow: hidden; 
+    -webkit-font-smoothing: antialiased;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Base Image Background Layer (Kept perfectly crisp) */
+.page-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('background img.jpg'); /* Put your image file name or URL here */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2; 
+}
+
+/* Header Styling */
+.shop-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;              /* Space between logo and button */
+    padding: 30px 20px;
+    background: transparent;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Comfortaa', cursive; 
+    font-size: 2.3rem;
+    font-weight: 700; 
+    letter-spacing: 0px;
+    color: #4a443f;
+}
+
+/* New Filled Explore Button Styling */
+.explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 380px;      /* Sleek, elongated look */
+    padding: 14px 30px;
+    
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none; /* Removes the default link underline */
+    
+    /* Filled theme coloring */
+    background-color: #ab9685;
+    color: #fcf9f2;        /* Cream white text color matching the body background */
+    
+    border: 2px solid var(--accent-brown);
+    border-radius: 30px;   /* Fully rounded pill shape */
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(92, 77, 76, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Interactive transitions on hover */
+.explore-btn:hover {
+    background-color: #443736;
+    border-color: #443736;
+    box-shadow: 0 12px 24px rgba(92, 77, 76, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Subtle movement for the inline arrow icon on hover */
+.explore-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.explore-btn svg {
+    transition: transform 0.2s ease;
+}
+
+.explore-btn:active {
+    transform: translateY(0);
+}
+
+/* Wheel Container Placement */
+.wheel-container {
+    position: fixed;
+    top: 20%; 
+    right: -170px; 
+    width: 350px;
+    height: 350px;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+/* The Wheel Track */
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    position: relative;
+    will-change: transform;
+}
+
+/* Positioning wrapper: places each gondola around the wheel circle.
+   This element spins WITH the wheel (that's what makes it orbit). */
+.wheel-head-pos {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    top: calc(50% - 37.5px);
+    left: calc(50% - 37.5px);
+    transform: rotate(var(--angle)) translate(140px);
+}
+
+/* Content wrapper: counter-rotates by the exact opposite of the wheel's
+   live rotation (plus its own placement angle), so the circle + label
+   inside always stay upright, like a Ferris wheel gondola. */
+.wheel-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(-1 * (var(--angle) + var(--rotation, 0deg))));
+    transition: transform 0.05s linear;
+}
+
+/* Thicker-looking glass profile */
+.wheel-head {
+    width: 75px;  
+    height: 75px; 
+    
+    background: rgba(255, 255, 255, 0.55); 
+    backdrop-filter: blur(1px) saturate(140%);          
+    -webkit-backdrop-filter: blur(1px) saturate(140%);  
+    
+    border: 3px solid #ab9685; 
+    
+    color: var(--accent-brown);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600; 
+    
+    box-shadow: 
+        0 15px 35px rgba(92, 77, 76, 0.12),   
+        0 5px 15px rgba(0, 0, 0, 0.04),        
+        inset 0 2px 4px rgba(255, 255, 255, 0.5); 
+    
+    transition: background-color 0.2s ease;
+}
+
+/* Spacing layout positions — each item's fixed angle around the wheel */
+.head-1 { --angle: 0deg; }
+.head-2 { --angle: 45deg; }
+.head-3 { --angle: 90deg; }
+.head-4 { --angle: 135deg; }
+.head-5 { --angle: 180deg; }
+.head-6 { --angle: 225deg; }
+.head-7 { --angle: 270deg; }
+.head-8 { --angle: 315deg; }
+  
+/* Makes the image completely fill the entire glass circle */
+.wheel-head img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+    border-radius: 50%;    
+    display: block;
+    pointer-events: none;  
+}
+/* Cart Button Base Layout */
+/* Cart Button - same style as first page */
+.cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    color: #ab9685;
+    background: none;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cart-btn:hover {
+    color: #7a5c42;
+    transform: scale(1.15);
+}
+
+.cart-btn svg {
+    width: 28px;
+    height: 28px;
+	filter: drop-shadow(0 0 0.3px currentColor);
+}
+
+/* Quantity Counter Badge resting over the logo */
+.cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+
+    background: #7a5c42;
+    color: white;
+
+    font-size: 0.65rem;
+    font-weight: 700;
+
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #fcf9f2;
+}
+
+.wheel-label {
+    position: absolute;
+    
+    /* Pushes text completely below the 75px circle boundary */
+    top: 75px; 
+    
+    /* Centers the text horizontally relative to the circle */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Typography & Styling */
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-brown);
+    white-space: nowrap;  /* Keeps the name on one single line */
+    
+    /* Layout Safety */
+    pointer-events: none; /* Prevents text selection from breaking dragging */
+    text-align: center;
+}
+
