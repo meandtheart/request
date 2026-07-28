@@ -64,12 +64,16 @@ body {
 }
 
 .logo {
+	position: fixed;
+	top: 20px;
+	left: 50%;
+	transform: translateX(-50%);
     font-family: 'Comfortaa', cursive; 
     font-size: 2.3rem;
     font-weight: 700; 
     letter-spacing: 0px;
-    color: #4a443f;
-	z-index: 100;
+    color: #735e59;
+	z-index: 1000;
 	
 	background: rgba(255, 255, 255, 0.15); 
     backdrop-filter: blur(2px) saturate(120%);          
@@ -89,6 +93,7 @@ body {
 }
 
 .explore-btn {
+	margin-top: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -204,7 +209,7 @@ body {
     height: 75px;
     top: calc(50% - 37.5px);
     left: calc(50% - 37.5px);
-    transform: rotate(var(--angle)) translate(140px);
+    transform: rotate(var(--angle)) translate(100px);
 }
 
 /* Content wrapper: counter-rotates by the exact opposite of the wheel's
@@ -405,7 +410,7 @@ body {
         height: clamp(56px, 18vw, 70px);
         top: calc(50% - clamp(28px, 9vw, 35px));
         left: calc(50% - clamp(28px, 9vw, 35px));
-        transform: rotate(var(--angle)) translate(clamp(95px, 30vw, 125px)); /* Radius reduced to fit */
+        transform: rotate(var(--angle)) translate(clamp(90px, 30vw, 120px)); /* Radius reduced to fit */
     }
 
     .wheel-head {
@@ -452,7 +457,7 @@ body {
 	
     .section-title {
 		
-        margin-top: 40px !important;
+        margin-top: 80px !important;
         font-size: 1.2rem;
     }
 	
