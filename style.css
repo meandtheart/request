@@ -410,7 +410,7 @@ body {
         height: clamp(56px, 18vw, 70px);
         top: calc(50% - clamp(28px, 9vw, 35px));
         left: calc(50% - clamp(28px, 9vw, 35px));
-        transform: rotate(var(--angle)) translate(clamp(90px, 30vw, 120px)); /* Radius reduced to fit */
+        transform: rotate(var(--angle)) translate(clamp(120px, 33vw, 150px)); /* Radius reduced to fit */
     }
 
     .wheel-head {
