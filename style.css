@@ -32,23 +32,20 @@ body {
 
 .page-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-	right: 0;
-	bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle at 50% 40%, 
-        #FBF7F0 0%, 
-        #F3EBE0 45%, 
-        #E8DEC8 85%, 
-        #DFCDBA 100%
-		);
-    background-size: cover;
-    background-position: center;
+    inset: 0;
+    background-color: #F2E8D9;
+    background-image:
+        radial-gradient(circle at 12% 15%, rgba(139, 111, 92, 0.55) 0%, transparent 40%),
+        radial-gradient(circle at 85% 10%, rgba(201, 151, 63, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 75% 60%, rgba(74, 60, 53, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 25% 70%, rgba(217, 191, 160, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 50% 40%, rgba(232, 217, 192, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 95% 85%, rgba(139, 111, 92, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 5% 90%, rgba(201, 151, 63, 0.35) 0%, transparent 40%);
     background-repeat: no-repeat;
-    z-index: -1; 
+    background-size: cover;
+    
+    z-index: -1;
 }
 /* Header Styling */
 .shop-header {
@@ -280,7 +277,7 @@ body {
     width: 48px;
     height: 48px;
 
-    color: #ab9685;
+    color: #735e59;
     background: none;
     border: none;
     text-decoration: none;
@@ -290,7 +287,7 @@ body {
 }
 
 .cart-btn:hover {
-    color: #7a5c42;
+    color: #ab9685;
     transform: scale(1.15);
 }
 
@@ -458,7 +455,8 @@ body {
     .section-title {
 		
         margin-top: 90px !important;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+		color: #4a443f;
     }
 	
 	.stack-container {
@@ -506,9 +504,9 @@ body {
     font-family: 'Fredoka', 'Comfortaa', cursive, sans-serif;
     
     /* Medium, fluid size */
-    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-size: 1.3rem;
     font-weight: 600;
-    color: #735e59; 
+    color: #4a443f; 
     text-align: center;
     width: 100%;
     letter-spacing: 0.5px;
